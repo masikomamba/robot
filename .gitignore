@@ -1,0 +1,27 @@
+# Python environments and bytecode
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Test and build outputs
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+install/
+log/
+*.egg-info/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+__pycache__/
+.pytest_cache/
+build/
+install/
+log/

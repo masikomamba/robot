@@ -1,0 +1,40 @@
+# Tunable parameters for the reactive controller and mapper.
+# Distances are meters, angles degrees unless the name says otherwise.
+reactive_controller:
+  ros__parameters:
+    control_rate: 10.0            # Hz
+    forward_speed: 0.20           # m/s (TB4 max is about 0.31)
+    turn_speed: 1.0               # rad/s for escape and random turns
+    avoid_turn_speed: 0.6         # rad/s for the avoid reflex
+    robot_radius: 0.17            # lidar center to bumper
+    obstacle_distance: 0.3048     # 1 ft past the bumper
+    front_half_angle_deg: 60.0    # "in front" = within +/- 60 deg of heading
+    symmetry_tolerance: 0.05      # left/right difference that counts as symmetric
+    escape_spread_deg: 30.0       # escape turn = 180 +/- this
+    random_turn_interval: 0.3048  # 1 ft of forward travel
+    random_turn_max_deg: 15.0     # random turn = uniform(-15, 15)
+    teleop_timeout: 0.75          # s a key press keeps control
+    scan_timeout: 1.0             # stop if laser scans go stale
+    odom_timeout: 1.0             # stop if odometry goes stale
+    hazard_timeout: 2.0           # stop if bumper/hazard updates go stale
+    keyboard_topic: keyboard/cmd_vel
+    scan_topic: scan
+    odom_topic: odom
+    hazard_topic: hazard_detection
+    dock_status_topic: dock_status
+    cmd_vel_topic: cmd_vel
+    undock_on_start: false        # real robot: manually undock before starting
+    random_seed: -1               # set >= 0 for repeatable runs
+
+occupancy_mapper:
+  ros__parameters:
+    map_frame: odom
+    resolution: 0.05
+    width: 16.0
+    height: 16.0
+    origin_x: -8.0
+    origin_y: -8.0
+    max_trace: 4.0
+    publish_period: 1.0
+    scan_topic: scan
+    odom_topic: odom
